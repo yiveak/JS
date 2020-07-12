@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13.3.1.05-stopPropagation()</title>
+</head>
+
+<body>
+    <button>click</button>
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', function (event) {
+            // 未阻止冒泡前，浏览器窗口依次弹出 btn clicked --> body clicked
+            alert('btn clicked');
+            // 在调用event.stopPropagation()后，点击事件不再冒泡到body上
+            event.stopPropagation();
+        })
+        document.body.onclick = function (event) {
+            alert('body clicked');
+        }
+    </script>
+</body>
+
+</html>

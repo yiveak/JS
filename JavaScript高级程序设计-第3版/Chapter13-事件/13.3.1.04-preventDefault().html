@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13.3.1.04-preventDefault()</title>
+</head>
+<body>
+    <!-- 这里阻止点击链接的默认跳转行为 -->
+    <a href="https://www.google.com"> Google </a>
+    <script>
+        /* 
+        只有cancelable属性设置为true的事件，才可以使用preventDefault()来取消其默认行为
+        要阻止特定事件的默认行为，可以使用preventDefault()方法
+        */
+        let a = document.querySelector('a');
+        a.onclick = function(event){
+            event.preventDefault();
+            
+        }
+        
+    </script>
+</body>
+</html>

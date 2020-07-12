@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13.3.1-DOM中的事件对象</title>
+</head>
+
+<body>
+    <!-- 兼容DOM的浏览器会将一个event对象传入到事件处理程序中。无论指定事件处理程序时使用什么方法（DOM0级或DOM2级），都会传入event对象 -->
+    <button class="btn1">click one</button>
+    <button class="btn2">click two</button>
+
+    <script>
+        let btn1 = document.querySelector('.btn1');
+        let btn2 = document.querySelector('.btn2');
+
+        btn1.onclick = function (event) {
+            alert(event.type);
+        };
+        btn2.addEventListener('click', function () {
+            alert(event.type);
+        })
+    </script>
+
+    <!-- 在通过HTML特性指定事件处理程序时，变量event中保存着event对象 -->
+    <input type="button" value="click" onclick="alert(event.type)" >
+</body>
+
+</html>

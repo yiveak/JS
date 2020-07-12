@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>click</button>
+
+    <script>
+        /* 
+        事件对象的eventPhase属性，可以用来确定事件当前正位于事件流的哪个阶段
+        1表示：事件捕获阶段
+        2表示：处于目标阶段
+        3表示：事件冒泡阶段
+        */
+        let btn = document.querySelector('button');
+        btn.onclick = function (event) {
+            console.log("btn.onclick: ", event.eventPhase); // 
+        }
+        document.body.addEventListener('click', function (event) {
+            console.log("document.body.addEventListener: ", event.eventPhase); // 注意这里第二个参数设置为了true
+        }, true)
+        document.body.onclick = function (event) {
+            console.log("document.body.onclick: ", event.eventPhase); // 
+        }
+    </script>
+</body>
+
+</html>

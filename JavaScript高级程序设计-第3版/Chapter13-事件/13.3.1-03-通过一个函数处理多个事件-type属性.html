@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13.3.1-03-通过一个函数处理多个事件-type属性</title>
+</head>
+<body>
+    <button class="btn">click me</button>
+    <script>
+        let btn = document.querySelector('.btn');
+        let handler = function (event) {
+            switch(event.type){
+                case "click":
+                    alert("clicked");
+                    break;
+                case "mouseover":
+                    event.target.style.backgroundColor = 'red';
+                    break;
+                case "mouseout":
+                    event.target.style.backgroundColor = '';
+                    break;
+            }
+        };
+        btn.onclick = handler;
+        btn.onmouseover = handler;
+        btn.onmouseout = handler;
+    </script>
+</body>
+</html>
